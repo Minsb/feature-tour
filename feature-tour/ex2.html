@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/introjs.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/introjs-modern.css" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+  </head>
+  <body>
+    <div style="position: absolute;">
+      <div style="position: relative; top: 0px; left: 0px;"><img id="img" src="css/img/2-1ex.jpg" height="720", width="1280"></img>
+      </div>
+      </div>
+      
+      <div style="position: absolute; opacity:0;">
+        <svg width="1280" height="720" style="position: relative; top: 0px; left: 0px;">
+            <rect id="1-1" x="27" y="473" width="230" height="22"></rect>
+            <rect id="2-1" x="11" y="130" width="503" height="335"></rect>
+            <rect id="2-2" x="521" y="133" width="161" height="114"></rect>
+            <rect id="2-3" x="692" y="131" width="163" height="175"></rect>
+            <rect id="2-4" x="860" y="131" width="167" height="176"></rect>
+            <rect id="2-5" x="521" y="311" width="165" height="166"></rect>
+            <rect id="2-6" x="696" y="315" width="161" height="162"></rect>
+            <rect id="2-7" x="865" y="315" width="152" height="161"></rect>
+            <rect id="3-1" x="862" y="291" width="161" height="173"></rect>
+            <rect id="2-8" x="31" y="223" width="172" height="228"></rect>
+         </svg>
+      </div>
+
+      <script src="intro.min.js"></script>
+    <script>
+       var options_before = {
+        steps: [
+        {intro:"응용 과정 예제 2 <br><br> 이번 예제에서는 200세대 이상의 아파트에서의 인터넷 서비스 추이를 확인합니다"},
+        {
+           element: document.getElementById("1-1"),
+           intro:'월별 서비스 추이를 구하기 위해서는 건물통합정보와 월별 고객정보요약 데이터가 필요합니다',
+           position: "right"},
+        {
+           element: document.getElementById("2-1"),
+           intro:'기준년월 레이어에 서비스수의 합을 집계합니다',
+           position: "right"},
+        {
+           element: document.getElementById("2-2"),
+           intro:'가용한 건물만 고릅니다',
+           position: "right"},
+           {
+           element: document.getElementById("2-3"),
+           intro:'200세대 이상 건물만 필터링 합니다',
+           position: "left"},
+           {element: document.getElementById("2-4"),
+           intro:'2021 입주연도에 체크합니다',
+           position: "right"},
+           {
+           element: document.getElementById("2-5"),
+           intro:'최초가용일 1월 체크합니다',
+           position: "left"},
+           {
+           element: document.getElementById("2-6"),
+           intro:'인터넷만 체크합니다',
+           position: "right"},
+           {element: document.getElementById("2-7"),
+           intro:'최초가용연도 2021 체크합니다',
+           position: "left"},
+           {
+           element: document.getElementById("3-1"),
+           intro:'조건을 만족하는 건물만을 체크합니다',
+           position: "left"},
+           {
+           element: document.getElementById("2-8"),
+           intro:'원하는 결과를 구할 수 있습니다',
+           position: "left"},
+          ],
+        
+        
+        tooltipClass: "LOL",
+        showProgress: true,
+        showBullets: false,
+        disableInteraction: true
+    };
+
+    window.onload = function() {
+        var intro = introJs();
+        intro.setOptions(options_before).oncomplete(() => {
+        alert("응용 과정 예제 2 을 완료했습니다 수고하셨습니다");
+        location.href="main.html";
+      });
+
+      intro.start().onbeforechange(function () {
+            if (intro._currentStep == "3") {
+              document.getElementById("img").src = "css/img/2-2ex.jpg";
+            } 
+            if (intro._currentStep == "9") {
+              document.getElementById("img").src = "css/img/2-3ex.jpg";
+            } 
+            if (intro._currentStep == "10") {
+              document.getElementById("img").src = "css/img/2-2ex.jpg";
+            } 
+        });
+
+        introJs().addHints();
+    }
+    </script>
+  </body>
+</html>
